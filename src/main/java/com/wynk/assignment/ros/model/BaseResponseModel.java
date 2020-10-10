@@ -14,5 +14,5 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class BaseResponseModel {
-	protected String responseMessage;
+	protected String status;
 }
