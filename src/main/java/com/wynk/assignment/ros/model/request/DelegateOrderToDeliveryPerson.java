@@ -1,19 +1,48 @@
 package com.wynk.assignment.ros.model.request;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import java.io.Serializable;
 
+/**
+ * @author kinshuk.saraswat
+ *
+ */
+public class DelegateOrderToDeliveryPerson implements Serializable {
 
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-public class DelegateOrderToDeliveryPerson {
+	private static final long serialVersionUID = 2527922667508987725L;
 
 	private Integer orderId;
-	
 	private Integer deliveryPersonId;
-	
+
+	/**
+	 * @return the orderId
+	 */
+	public Integer getOrderId() {
+		return orderId;
+	}
+
+	/**
+	 * @param orderId the orderId to set
+	 */
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+
+	/**
+	 * @return the deliveryPersonId
+	 */
+	public Integer getDeliveryPersonId() {
+		return deliveryPersonId;
+	}
+
+	/**
+	 * @param deliveryPersonId the deliveryPersonId to set
+	 */
+	public void setDeliveryPersonId(Integer deliveryPersonId) {
+		this.deliveryPersonId = deliveryPersonId;
+	}
+
+	@Override
+	public String toString() {
+		return "DelegateOrderToDeliveryPerson [orderId=" + orderId + ", deliveryPersonId=" + deliveryPersonId + "]";
+	}
 }

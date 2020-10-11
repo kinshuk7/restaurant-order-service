@@ -1,15 +1,15 @@
 package com.wynk.assignment.ros.service;
 
-import com.wynk.assignment.ros.model.BaseResponseModel;
 import com.wynk.assignment.ros.model.response.DeliveryOrderResponse;
+import com.wynk.assignment.ros.model.response.DeliveryStatus;
 
 /**
  * @author kinshuk.saraswat
  *
  */
-public interface DeliveryPeopleService {
+public interface DPService {
 	
-	public BaseResponseModel assignOrderToDeliveryPerson(Integer orderId, Integer deliveryPersonId);
+	public DeliveryStatus assignOrderToDeliveryPerson(Integer orderId, Integer deliveryPersonId);
 	
 	public DeliveryOrderResponse getOrderStatusForPersonId(Integer deliveryPersonId);
 }

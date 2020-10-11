@@ -1,18 +1,33 @@
 package com.wynk.assignment.ros.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import java.io.Serializable;
 
 /**
  * @author kinshuk.saraswat
  *
  */
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
-public class BaseResponseModel {
+public class BaseResponseModel implements Serializable {
+	
+	private static final long serialVersionUID = -6209745457726304749L;
+	
 	protected String status;
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "BaseResponseModel [status=" + status + "]";
+	}
 }
