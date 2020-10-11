@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,8 @@ import com.wynk.assignment.ros.util.ROSConstants;
 @Service
 public class RestaurantOrderServiceImpl implements RestaurantOrderService {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(RestaurantOrderServiceImpl.class);
+	
 	private static final Map<Integer, Order> ORDER_MAP = new ConcurrentHashMap<>();
 	
 	@Autowired
@@ -50,9 +54,39 @@ public class RestaurantOrderServiceImpl implements RestaurantOrderService {
 
 	@Override
 	public BaseResponseModel updateStatusOfOrder(Integer orderId, OrderStatus orderStatus) {
+		Order orderStat = ORDER_MAP.get(orderId);
+		
+		boolean isOrderStateToUpdateIsValid = isOrderStateToUpdateValid(orderStat.getStatus(), orderStatus, orderId);
+		orderStat.setStatus(orderStatus);
 		BaseResponseModel respBean = new BaseResponseModel();
-		respBean.setStatus(ROSConstants.SUCCESS_STATUS);
+		if(isOrderStateToUpdateIsValid) {
+			respBean.setStatus(ROSConstants.SUCCESS_STATUS);
+		} else {
+			respBean.setStatus(ROSConstants.FAIL_STATUS);
+		}
 		return respBean;
 	}
 	
+	private boolean isOrderStateToUpdateValid(OrderStatus currentStatus, OrderStatus finalStatus, Integer orderId) {
+		LOGGER.info("orderId={}|orderstatus={}|finalStatus={}", orderId, currentStatus, finalStatus);
+		if(OrderStatus.QUEUED.equals(finalStatus)) {
+			return false;
+		}
+		if(OrderStatus.QUEUED.equals(currentStatus)) {
+			if(OrderStatus.DELIVERY_PERSON_ASSIGNED.equals(finalStatus)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if (OrderStatus.DELIVERY_PERSON_ASSIGNED.equals(currentStatus)) {
+			if(OrderStatus.DELIVERED.equals(finalStatus)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			LOGGER.warn("The order status is already closed");
+			return true;
+		}
+	}
 }
