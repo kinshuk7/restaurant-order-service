@@ -1,10 +1,10 @@
 package com.wynk.assignment.ros.model;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import com.wynk.assignment.ros.model.request.ItemInfo;
+import com.wynk.assignment.ros.model.response.OrderStatus;
 
 /**
  * @author kinshuk.saraswat
@@ -16,7 +16,9 @@ public class Order implements Serializable {
 	
 	private Integer orderId;
 	private List<ItemInfo> itemInfo;
-	private LocalDateTime expectedDeliveryTime;
+	private Integer deliveryDurationOfOrder;
+	private OrderStatus status;
+	
 	/**
 	 * @return the orderId
 	 */
@@ -42,20 +44,32 @@ public class Order implements Serializable {
 		this.itemInfo = itemInfo;
 	}
 	/**
-	 * @return the expectedDeliveryTime
+	 * @return the deliveryDurationOfOrder
 	 */
-	public LocalDateTime getExpectedDeliveryTime() {
-		return expectedDeliveryTime;
+	public Integer getDeliveryDurationOfOrder() {
+		return deliveryDurationOfOrder;
 	}
 	/**
-	 * @param expectedDeliveryTime the expectedDeliveryTime to set
+	 * @param deliveryDurationOfOrder the deliveryDurationOfOrder to set
 	 */
-	public void setExpectedDeliveryTime(LocalDateTime expectedDeliveryTime) {
-		this.expectedDeliveryTime = expectedDeliveryTime;
+	public void setDeliveryDurationOfOrder(Integer deliveryDurationOfOrder) {
+		this.deliveryDurationOfOrder = deliveryDurationOfOrder;
+	}
+	/**
+	 * @return the status
+	 */
+	public OrderStatus getStatus() {
+		return status;
+	}
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(OrderStatus status) {
+		this.status = status;
 	}
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", itemInfo=" + itemInfo + ", expectedDeliveryTime=" + expectedDeliveryTime
-				+ "]";
+		return "Order [orderId=" + orderId + ", itemInfo=" + itemInfo + ", deliveryDurationOfOrder="
+				+ deliveryDurationOfOrder + ", status=" + status + "]";
 	}
 }

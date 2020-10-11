@@ -1,5 +1,5 @@
 package com.wynk.assignment.ros.model.response;
 
 public enum OrderStatus {
-	ORDERED, IN_TRANSIT, DELIVERED
+	QUEUED, DELIVERY_PERSON_ASSIGNED, DELIVERED
 }
