@@ -1,22 +1,19 @@
-package com.wynk.assignment.ros.restaurants.model.response;
+package com.wynk.assignment.ros.model.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author kinshuk.saraswat
- *
- */
+
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class OrderStatusResponse {
+public class DelegateOrderToDeliveryPerson {
 
 	private Integer orderId;
 	
-	private OrderStatus status;
+	private Integer deliveryPersonId;
 	
 }

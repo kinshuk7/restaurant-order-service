@@ -1,4 +1,4 @@
-package com.wynk.assignment.ros.restaurants.model.request;
+package com.wynk.assignment.ros.model.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

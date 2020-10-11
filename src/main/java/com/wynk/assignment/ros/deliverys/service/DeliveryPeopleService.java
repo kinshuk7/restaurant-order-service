@@ -1,7 +1,7 @@
 package com.wynk.assignment.ros.deliverys.service;
 
-import com.wynk.assignment.ros.deliverys.model.response.DeliveryOrderResponse;
 import com.wynk.assignment.ros.model.BaseResponseModel;
+import com.wynk.assignment.ros.model.response.DeliveryOrderResponse;
 
 /**
  * @author kinshuk.saraswat

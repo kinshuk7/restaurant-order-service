@@ -1,4 +1,4 @@
-package com.wynk.assignment.ros.deliverys.model.response;
+package com.wynk.assignment.ros.model.response;
 
 import com.wynk.assignment.ros.model.Order;
 
