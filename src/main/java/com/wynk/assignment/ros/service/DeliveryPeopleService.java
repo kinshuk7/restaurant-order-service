@@ -1,4 +1,4 @@
-package com.wynk.assignment.ros.deliverys.service;
+package com.wynk.assignment.ros.service;
 
 import com.wynk.assignment.ros.model.BaseResponseModel;
 import com.wynk.assignment.ros.model.response.DeliveryOrderResponse;
