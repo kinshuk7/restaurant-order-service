@@ -12,4 +12,5 @@ public interface DPService {
 	public DeliveryStatus assignOrderToDeliveryPerson(Integer orderId, Integer deliveryPersonId);
 	
 	public DeliveryOrderResponse getOrderStatusForPersonId(Integer deliveryPersonId);
+	
 }

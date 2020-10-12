@@ -55,12 +55,11 @@ public class RestaurantOrderServiceImpl implements RestaurantOrderService {
 	@Override
 	public BaseResponseModel updateStatusOfOrder(Integer orderId, OrderStatus orderStatus) {
 		Order orderStat = ORDER_MAP.get(orderId);
-		
 		boolean isOrderStateToUpdateIsValid = isOrderStateToUpdateValid(orderStat.getStatus(), orderStatus, orderId);
-		orderStat.setStatus(orderStatus);
 		BaseResponseModel respBean = new BaseResponseModel();
 		if(isOrderStateToUpdateIsValid) {
 			respBean.setStatus(ROSConstants.SUCCESS_STATUS);
+			orderStat.setStatus(orderStatus);
 		} else {
 			respBean.setStatus(ROSConstants.FAIL_STATUS);
 		}
@@ -88,5 +87,11 @@ public class RestaurantOrderServiceImpl implements RestaurantOrderService {
 			LOGGER.warn("The order status is already closed");
 			return true;
 		}
+	}
+	/**
+	 * @return the orderMap
+	 */
+	public static Map<Integer, Order> getOrderMap() {
+		return ORDER_MAP;
 	}
 }

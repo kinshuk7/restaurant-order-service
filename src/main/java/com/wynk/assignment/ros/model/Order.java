@@ -18,6 +18,7 @@ public class Order implements Serializable {
 	private List<ItemInfo> itemInfo;
 	private Integer deliveryDurationOfOrder;
 	private OrderStatus status;
+	private DeliveryPersonModel dpModel;
 	
 	/**
 	 * @return the orderId
@@ -67,9 +68,16 @@ public class Order implements Serializable {
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
-	@Override
-	public String toString() {
-		return "Order [orderId=" + orderId + ", itemInfo=" + itemInfo + ", deliveryDurationOfOrder="
-				+ deliveryDurationOfOrder + ", status=" + status + "]";
+	/**
+	 * @return the dpModel
+	 */
+	public DeliveryPersonModel getDpModel() {
+		return dpModel;
+	}
+	/**
+	 * @param dpModel the dpModel to set
+	 */
+	public void setDpModel(DeliveryPersonModel dpModel) {
+		this.dpModel = dpModel;
 	}
 }
