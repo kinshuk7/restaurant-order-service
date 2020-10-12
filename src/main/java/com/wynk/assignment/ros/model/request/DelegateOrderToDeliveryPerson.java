@@ -2,6 +2,8 @@ package com.wynk.assignment.ros.model.request;
 
 import java.io.Serializable;
 
+import org.springframework.lang.NonNull;
+
 /**
  * @author kinshuk.saraswat
  *
@@ -10,7 +12,9 @@ public class DelegateOrderToDeliveryPerson implements Serializable {
 
 	private static final long serialVersionUID = 2527922667508987725L;
 
+	@NonNull
 	private Integer orderId;
+	@NonNull
 	private Integer deliveryPersonId;
 
 	/**

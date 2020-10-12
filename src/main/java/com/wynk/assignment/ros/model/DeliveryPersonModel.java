@@ -10,6 +10,28 @@ public class DeliveryPersonModel {
 
 	private Integer deliveryPersonId;
 	private DeliveryStatus deliveryStatus;
+	private Integer orderId;
+	
+	/**
+	 * 
+	 */
+	public DeliveryPersonModel() {
+		super();
+		this.deliveryStatus = DeliveryStatus.UNASSIGNED;
+	}
+	
+	/**
+	 * @param deliveryPersonId
+	 * @param deliveryStatus
+	 */
+	public DeliveryPersonModel(Integer deliveryPersonId, DeliveryStatus deliveryStatus) {
+		super();
+		this.deliveryPersonId = deliveryPersonId;
+		this.deliveryStatus = deliveryStatus;
+	}
+
+
+
 	/**
 	 * @return the deliveryPersonId
 	 */
@@ -33,5 +55,19 @@ public class DeliveryPersonModel {
 	 */
 	public void setDeliveryStatus(DeliveryStatus deliveryStatus) {
 		this.deliveryStatus = deliveryStatus;
+	}
+
+	/**
+	 * @return the orderId
+	 */
+	public Integer getOrderId() {
+		return orderId;
+	}
+
+	/**
+	 * @param orderId the orderId to set
+	 */
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
 	}
 }
